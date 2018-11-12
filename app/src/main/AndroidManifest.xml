@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".KeySearchActivity" />
+        <activity android:name=".CatSearchActivity" />
+        <activity android:name=".CarSettingActivity"></activity>
     </application>
 
 </manifest>
