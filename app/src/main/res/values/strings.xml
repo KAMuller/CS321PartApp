@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CS321PartApp</string>
+    <string name="title">Auto Part Pricer</string>
+    <string name="KeySearchText">Keyword Search</string>
+    <string name="CatSearchText">Category Search</string>
+    <string name="CarSetText">Edit Car Settings</string>
 </resources>
