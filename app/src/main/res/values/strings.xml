@@ -4,4 +4,7 @@
     <string name="KeySearchText">Keyword Search</string>
     <string name="CatSearchText">Category Search</string>
     <string name="CarSetText">Edit Car Settings</string>
+    <string name="KeySearchTitle">Keyword Search</string>
+    <string name="KeyHintText">Enter Keyword Here...</string>
+    <string name="SearchText">Search</string>
 </resources>
