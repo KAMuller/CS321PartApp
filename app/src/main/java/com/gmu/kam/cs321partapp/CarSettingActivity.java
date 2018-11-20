@@ -4,7 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class CarSettingActivity extends AppCompatActivity {
-    // did it work?
+    //Array for holding the car objects
+    private Object carList[] =  new Object[4];
+    //Array counter
+    private int count = 0;
+
+    //method for adding cars
+    public void newCar(){
+
+        count++;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
