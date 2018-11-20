@@ -12,6 +12,18 @@ public class CarSettingActivity extends AppCompatActivity {
     //method for adding cars
     public void newCar(){
 
+        //need to input the information here
+        String year = "";
+        String make = "";
+        String model = "";
+        //
+        Car car = new Car();
+        car.setYear(year);
+        car.setMake(make);
+        car.setModel(model);
+        
+        //adding the new car to the list
+        carList[count] = car;
         count++;
     }
     @Override
