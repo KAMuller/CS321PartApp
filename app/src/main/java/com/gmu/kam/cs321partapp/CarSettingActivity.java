@@ -2,13 +2,11 @@ package com.gmu.kam.cs321partapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import java.util.ArrayList;
 
-public class CarSettingActivity extends AppCompatActivity {
-    //Array for holding the car objects
-    private Object carList[] =  new Object[4];
-    //Array counter
-    private int count = 0;
-
+public abstract class CarSettingActivity extends AppCompatActivity {
+    //ArrayList for holding the car objects
+    ArrayList CarList = new ArrayList(4);
     //method for adding cars
     public void newCar(){
 
@@ -22,10 +20,24 @@ public class CarSettingActivity extends AppCompatActivity {
         car.setMake(make);
         car.setModel(model);
         
-        //adding the new car to the list
-        carList[count] = car;
-        count++;
+        //adding the new car
+        CarList.add(car);
     }
+
+    public boolean removeCar(Car car){
+        CarList.remove(car);
+        return false;
+    }
+
+    public void EditCar(){
+
+    }
+
+    public void SaveData(){
+
+    }
+
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
