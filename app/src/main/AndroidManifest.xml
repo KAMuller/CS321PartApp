@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".KeySearchActivity" />
         <activity android:name=".CatSearchActivity" />
-        <activity android:name=".CarSettingActivity"></activity>
+        <activity android:name=".CarSettingActivity" />
+        <activity android:name=".Results"></activity>
     </application>
 
 </manifest>

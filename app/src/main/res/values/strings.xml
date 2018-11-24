@@ -7,4 +7,5 @@
     <string name="KeySearchTitle">Keyword Search</string>
     <string name="KeyHintText">Enter Keyword Here...</string>
     <string name="SearchText">Search</string>
+    <string name="engine">Engine</string>
 </resources>
