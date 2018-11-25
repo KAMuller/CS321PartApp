@@ -20,7 +20,6 @@ public class Crawl
         crawlSites(links);*/
 
     }
-
     public static ArrayList<Product> crawlSites(ArrayList<String> urlList)
     {
         ArrayList<Product> walmartProducts = new ArrayList<>(0);
