@@ -19,7 +19,12 @@
         <activity android:name=".KeySearchActivity" />
         <activity android:name=".CatSearchActivity" />
         <activity android:name=".CarSettingActivity" />
-        <activity android:name=".Results"></activity>
+        <activity android:name=".Results" />
+        <activity android:name=".FilterActivity" />
+        <activity android:name=".FluidActivity" />
+        <activity android:name=".SensorActivity" />
+        <activity android:name=".ElectricActivity" />
+        <activity android:name=".PartActivity"></activity>
     </application>
 
 </manifest>

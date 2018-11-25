@@ -7,33 +7,40 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class BaseMenu extends AppCompatActivity {
+public class SensorActivity extends AppCompatActivity {
 
+    public void O2SenSearch(View v){
 
+        Intent openResults = new Intent(SensorActivity.this, Results.class);
+        openResults.putExtra("KEYWORD", getResources().getString(R.string.o2sen));
+        startActivity(openResults);
+    }
 
-        public void openKeySearch(View v){
-            startActivity(new Intent(BaseMenu.this, KeySearchActivity.class));
-        }
-        public void openCatSearch(View v){
-            startActivity(new Intent(BaseMenu.this, CatSearchActivity.class));
-        }
-        public void openCarSetting(View v){
-            startActivity(new Intent(BaseMenu.this, CarSettingActivity.class));
-        }
+    public void MafSenSearch(View v){
+
+        Intent openResults = new Intent(SensorActivity.this, Results.class);
+        openResults.putExtra("KEYWORD", getResources().getString(R.string.mafSen));
+        startActivity(openResults);
+    }
+
+    public void TempSenSearch(View v){
+
+        Intent openResults = new Intent(SensorActivity.this, Results.class);
+        openResults.putExtra("KEYWORD", getResources().getString(R.string.tempSen));
+        startActivity(openResults);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_menu);
-
+        setContentView(R.layout.activity_sensor);
     }
 
     @Override
     public void onResume(){
         super.onResume();
 
-        TextView currCar = findViewById(R.id.textView4);
+        TextView currCar = findViewById(R.id.textView15);
         String carText;
 
         //CarSettingActivity.year = "1986";
