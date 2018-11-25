@@ -12,7 +12,7 @@ public class KeySearchActivity extends AppCompatActivity {
 
     public void search(View v){
 
-        TextInputLayout keyInp = findViewById(R.id.textInputLayout);
+        TextInputLayout keyInp = findViewById(R.id.textInputLayoutB);
         String keyString = keyInp.getEditText().getText().toString();
 
         Intent openResults = new Intent(KeySearchActivity.this, Results.class);

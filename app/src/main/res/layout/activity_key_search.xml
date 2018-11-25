@@ -52,7 +52,7 @@
         android:layout_marginRight="10dp"
         android:text="@string/SearchText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textInputLayout"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutB"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button

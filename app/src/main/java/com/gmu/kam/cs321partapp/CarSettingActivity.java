@@ -4,21 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public abstract class CarSettingActivity extends AppCompatActivity {
-    static String Year = null;
+    static String year = null;
     static String make = null;
     static String model = null;
-    
 
-    //method for adding cars
-    public void AddCar(){
-    }
 
-    public void RemoveCar(Car car){
-
-    }
-    //
-
-    public void SaveData(){
+    //Button for saving the data
+    //This button will save the data in the fields and update the static variables with the
+    //selected car
+    public void Save(){
 
     }
 
@@ -28,4 +22,5 @@ public abstract class CarSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_setting);
     }
+
 }
