@@ -8,4 +8,7 @@
     <string name="KeyHintText">Enter Keyword Here...</string>
     <string name="SearchText">Search</string>
     <string name="engine">Engine</string>
+    <string name="maintenance">Maintenace parts</string>
+    <string name="engParts">Engine Parts</string>
+    <string name="eleParts">electrical Parts</string>
 </resources>
