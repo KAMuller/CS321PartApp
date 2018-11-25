@@ -3,7 +3,7 @@ package com.gmu.kam.cs321partapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public abstract class CarSettingActivity extends AppCompatActivity {
+public class CarSettingActivity extends AppCompatActivity {
     static String year = null;
     static String make = null;
     static String model = null;

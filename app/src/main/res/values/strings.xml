@@ -11,4 +11,9 @@
     <string name="maintenance">Maintenace parts</string>
     <string name="engParts">Engine Parts</string>
     <string name="eleParts">electrical Parts</string>
+    <string name="carSetTitle">Car Settings</string>
+    <string name="yearHint">Year</string>
+    <string name="makeHint">Make</string>
+    <string name="modelHint">Model</string>
+    <string name="CarYearHint">Year</string>
 </resources>
