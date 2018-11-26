@@ -1,5 +1,3 @@
-package com.gmu.kam.cs321partapp;
-
 import java.io.IOException;
 import java.util.*;
 import org.jsoup.*;
@@ -12,15 +10,11 @@ import org.jsoup.nodes.Element;
  */
 public class Crawl
 {
-    public static void main(String[] args)
-    {
-        ArrayList<String> links = new ArrayList<>();
-        links.add("https://www.walmart.com/search/?query=acura%20rsx%20brake%20pads");
-        links.add("https://www.carparts.com/results/?Ntt=acura+rsx+brake+pad&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
-        links.add("https://www.carid.com/search/acura+rsx+brake+pads/code-0f686e0cd7d00ac950d65108f3c9b244/queryId-fc5dcd3d510cb5a415e0a3119351a192/ymm-0%7CAcura%7CRSX");
-        links.add("https://www.usautoparts.net/catalog?Ntt=acura+rsx+brake+pads&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
-        crawlSites(links);
+    ArrayList<String> urls;
 
+    public Crawl(ArrayList<String> urlsinput)
+    {
+        this.urls=urlsinput;
     }
 
     public static ArrayList<Product> crawlSites(ArrayList<String> urlList)
@@ -210,7 +204,7 @@ public class Crawl
 */      return products;
     }
 
-    public static class Product
+    public static class Product implements Comparable<Product>
     {
         String prodName;
         String prodPrice;
@@ -223,6 +217,12 @@ public class Crawl
             this.prodPrice="";
             this.prodImg="";
             this.prodLink="";
+        }
+
+        @Override
+        public int compareTo(Product o)
+        {
+            return o.prodPrice.compareTo(this.prodPrice);
         }
     }
 }
