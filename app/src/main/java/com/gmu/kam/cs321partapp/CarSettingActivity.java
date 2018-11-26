@@ -8,12 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import java.io.File;
-import android.content.Context;
-
-import net.bytebuddy.implementation.Implementation;
-
-
 /*
     Created by Jonathan on 11/12/18
  */
@@ -30,11 +24,6 @@ public class CarSettingActivity extends AppCompatActivity {
         loadCarInfo();
     }
 
-    //This method will load a file and only set the static variables.
-    public void getCurrentCar(){
-    SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
-    
-    }
 
     //This method will load a file from the device storage and set the appropriate values.
     public void loadCarInfo(){
@@ -43,11 +32,13 @@ public class CarSettingActivity extends AppCompatActivity {
         String mak = carTextInfo.getString("MAKE1","none");
         String mod = carTextInfo.getString("MODEL1","none");
         Boolean cc = carTextInfo.getBoolean("1CURRENTCAR?", false);
-        if(cc == true) {
+        if(cc) {
             year = yr;
             make = mak;
             model = mod;
             currentCarNum = 1;
+            RadioButton car1 = findViewById(R.id.radioCar1);
+            car1.toggle();
         }
             String updateCar1 = "Year:" + yr + " " + "Make:" + mak + " " + "Model:" + mod;
             TextView car1 = findViewById(R.id.textViewCar);
@@ -57,11 +48,13 @@ public class CarSettingActivity extends AppCompatActivity {
         String mak2 = carTextInfo.getString("MAKE2","none");
         String mod2 = carTextInfo.getString("MODEL2","none");
         Boolean cc2 = carTextInfo.getBoolean("2CURRENTCAR?", false);
-        if(cc2 == true) {
+        if(cc2) {
             year = yr2;
             make = mak2;
             model = mod2;
             currentCarNum = 2;
+            RadioButton car2 = findViewById(R.id.radioCar2);
+            car2.toggle();
         }
             String updateCar2 = "Year:" + yr2 + " " + "Make:" + mak2 + " " + "Model:" + mod2;
             TextView car2 = findViewById(R.id.textViewCar3);
@@ -71,11 +64,13 @@ public class CarSettingActivity extends AppCompatActivity {
         String mak3 = carTextInfo.getString("MAKE3","none");
         String mod3 = carTextInfo.getString("MODEL3","none");
         Boolean cc3 = carTextInfo.getBoolean("3CURRENTCAR?", false);
-        if(cc3 == true) {
+        if(cc3) {
             year = yr3;
             make = mak3;
             model = mod3;
             currentCarNum = 3;
+            RadioButton car3 = findViewById(R.id.radioCar3);
+            car3.toggle();
         }
             String updateCar3 = "Year:" + yr3 + " " + "Make:" + mak3 + " " + "Model:" + mod3;
             TextView car3 = findViewById(R.id.textViewCar4);
@@ -85,11 +80,13 @@ public class CarSettingActivity extends AppCompatActivity {
         String mak4 = carTextInfo.getString("MAKE4","none");
         String mod4 = carTextInfo.getString("MODEL4","none");
         Boolean cc4 = carTextInfo.getBoolean("4CURRENTCAR?", false);
-        if(cc4 == true) {
+        if(cc4) {
             year = yr4;
             make = mak4;
             model = mod4;
             currentCarNum = 4;
+            RadioButton car4 = findViewById(R.id.radioCar4);
+            car4.toggle();
         }
 
             String updateCar4 = "Year:" + yr4 + " " + "Make:" + mak4 + " " + "Model:" + mod4;
