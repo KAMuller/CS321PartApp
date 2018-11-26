@@ -2,10 +2,16 @@ package com.gmu.kam.cs321partapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,15 +34,6 @@ public class Results extends AppCompatActivity {
 
         resultView = findViewById(R.id.textView7);
 
-    }
-
-    @Override
-    public void onResume(){
-        super.onResume();
-
-
-        resultView.setMovementMethod(new ScrollingMovementMethod());
-
         Intent in = getIntent();
         String keyword = in.getStringExtra("KEYWORD");
         searchTerm = CarSettingActivity.year + " " + CarSettingActivity.make + " " + CarSettingActivity.model + " " + keyword;
@@ -45,9 +42,22 @@ public class Results extends AppCompatActivity {
         resultView.setText("Loading...");
         new DoCrawl().execute(searchTerm);
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+
+        //resultView.setMovementMethod(new ScrollingMovementMethod());
+
+
+
 
 
     }
+
+
 
     private class DoCrawl extends AsyncTask<String, Void, Void> {
 
@@ -81,30 +91,48 @@ public class Results extends AppCompatActivity {
                 int numProducts = results.size();
 
 
-                StringBuilder resBuild = new StringBuilder();
+                SpannableStringBuilder resBuild = new SpannableStringBuilder();
                 for(int i = 0; i<numProducts; i++){
-                    resBuild.append(i+1);
+
+                    resBuild.append(Integer.toString(i+1));
                     resBuild.append(":\n");
+
                     resBuild.append("Name:\n");
                     resBuild.append(results.get(i).prodName);
+
                     resBuild.append("\nPrice:\n");
                     resBuild.append(results.get(i).prodPrice);
+
                     resBuild.append("\nLink:\n");
                     resBuild.append(results.get(i).prodLink);
+
+                    int finalI = i;
+                    resBuild.setSpan(new ClickableSpan() {
+                        @Override
+                        public void onClick(View widget) {
+                            Uri link = Uri.parse(results.get(finalI).prodLink);
+                            Intent intent = new Intent(Intent.ACTION_VIEW,link);
+                            startActivity(intent);
+                        }
+                    }, resBuild.length() - results.get(i).prodLink.length(), resBuild.length(), 0);
                     resBuild.append("\n\n");
 
 
                 }
-                resOutput = resBuild.toString();
+                //resOutput = resBuild.toString();
+                //resultView.setText(resOutput);
+                resultView.setMovementMethod(LinkMovementMethod.getInstance());
+                resultView.setText(resBuild, TextView.BufferType.SPANNABLE);
             }
             else{
 
                 resultView.setTextColor(Color.RED);
                 resOutput = "No Results Found" + "\n\n" + "Please verify that your Car Information and Keyword are accurate";
+                resultView.setText(resOutput);
             }
 
 
-            resultView.setText(resOutput);
+
 
         }
 

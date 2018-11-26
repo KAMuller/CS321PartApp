@@ -1,3 +1,5 @@
+package com.gmu.kam.cs321partapp;
+
 import java.io.IOException;
 import java.util.*;
 import org.jsoup.*;
@@ -12,9 +14,9 @@ public class Crawl
 {
     ArrayList<String> urls;
 
-    public Crawl(ArrayList<String> urlsinput)
+    public Crawl()
     {
-        this.urls=urlsinput;
+
     }
 
     public static ArrayList<Product> crawlSites(ArrayList<String> urlList)
@@ -221,9 +223,21 @@ public class Crawl
         }
 
         @Override
-        public int compareTo(Product o)
-        {
-            return o.prodPrice.compareTo(this.prodPrice);
+        public int compareTo(Product o) {
+            int res;
+            float t = Float.parseFloat(this.prodPrice.substring(this.prodPrice.lastIndexOf('$') + 1));
+            float fo = Float.parseFloat(o.prodPrice.substring(o.prodPrice.lastIndexOf('$') + 1));
+            float eps = (float) 0.001;
+            if(Math.abs(t - fo) < eps){
+                res = 0;
+            }
+            else if (t < fo){
+                res = -1;
+            }
+            else{
+                res = 1;
+            }
+            return res;
         }
     }
 }
