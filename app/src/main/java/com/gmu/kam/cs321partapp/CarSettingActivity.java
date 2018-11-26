@@ -111,7 +111,8 @@ public class CarSettingActivity extends AppCompatActivity {
         info1 = info1.replace("Year:", "!");
         info1 = info1.replace("Make:", "!");
         info1 = info1.replace("Model:", "!");
-        String[] values = info1.split("!");
+        String[] values = new String[3];
+        values = info1.split("!",3);
         year = values[0];
         make = values[1];
         model = values[2];

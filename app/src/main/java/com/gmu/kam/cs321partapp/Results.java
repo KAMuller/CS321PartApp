@@ -63,13 +63,14 @@ public class Results extends AppCompatActivity {
             for(int i = 0; i<numProducts; i++){
                 resBuild.append(i+1);
                 resBuild.append(":\n");
-                resBuild.append("Name: ");
+                resBuild.append("Name:\n");
                 resBuild.append(results.get(i).prodName + "\n");
-                resBuild.append("Price: ");
+                resBuild.append("Price:\n");
                 resBuild.append(results.get(i).prodPrice + "\n");
-                resBuild.append("Link: ");
+                resBuild.append("Link:\n");
                 resBuild.append(results.get(i).prodLink);
-                resBuild.append("\n");
+                resBuild.append("\n\n");
+
 
             }
             resOutput = resBuild.toString();
