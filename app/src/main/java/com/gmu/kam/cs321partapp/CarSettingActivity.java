@@ -24,12 +24,13 @@ public class CarSettingActivity extends AppCompatActivity {
         //load from preferences
     }
 
-    public void saveButton(View view){
-        boolean checked = ((RadioButton)view).isChecked();
+    public void saveButton(){
+        RadioButton car1 = findViewById(R.id.radioCar1);
+        RadioButton car2 = findViewById(R.id.radioCar2);
+        RadioButton car3 = findViewById(R.id.radioCar3);
+        RadioButton car4 = findViewById(R.id.radioCar4);
         //Which radio button was checked?
-        switch (view.getId()){
-            case R.id.radioCar1:
-                if(checked){
+                if(car1.isChecked()) {
                     //set the static variables with the values in the fields
                     EditText yearInp = findViewById(R.id.editText2);
                     year = yearInp.getText().toString();
@@ -40,9 +41,7 @@ public class CarSettingActivity extends AppCompatActivity {
                     EditText modelInp = findViewById(R.id.editText4);
                     model = modelInp.getText().toString();
                 }
-                break;
-            case R.id.radioCar2:
-                if(checked){
+                if(car2.isChecked()){
                     //set the static variables with the values in the fields
                     EditText yearInp = findViewById(R.id.editText5);
                     year = yearInp.getText().toString();
@@ -53,9 +52,7 @@ public class CarSettingActivity extends AppCompatActivity {
                     EditText modelInp = findViewById(R.id.editText7);
                     model = modelInp.getText().toString();
                 }
-                break;
-            case R.id.radioCar3:
-                if(checked){
+                if(car3.isChecked()) {
                     //set the static variables with the values in the fields
                     EditText yearInp = findViewById(R.id.editText8);
                     year = yearInp.getText().toString();
@@ -66,9 +63,7 @@ public class CarSettingActivity extends AppCompatActivity {
                     EditText modelInp = findViewById(R.id.editText11);
                     model = modelInp.getText().toString();
                 }
-                break;
-            case R.id.radioCar4:
-                if(checked){
+                if(car4.isChecked()){
                     //set the static variables with the values in the fields
                     EditText yearInp = findViewById(R.id.editText9);
                     year = yearInp.getText().toString();
@@ -79,11 +74,6 @@ public class CarSettingActivity extends AppCompatActivity {
                     EditText modelInp = findViewById(R.id.editText13);
                     model = modelInp.getText().toString();
                 }
-                break;
-            default:
-                //please select a current car
-                break;
-        }//end of switch
         //update the text views
         updateCar1();
         updateCar2();
