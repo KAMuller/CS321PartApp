@@ -1,11 +1,17 @@
 package com.gmu.kam.cs321partapp;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import java.io.File;
+import android.content.Context;
+
+import net.bytebuddy.implementation.Implementation;
 
 
 /*
@@ -15,15 +21,43 @@ public class CarSettingActivity extends AppCompatActivity {
     static String year = null;
     static String make = null;
     static String model = null;
-
-
+    private int currentCarNum = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_setting);
         //load from preferences
+        loadCarInfo();
     }
 
+    //This method will load a file and only set the static variables.
+    public void getCurrentCar(){
+    SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
+    
+    }
+
+    //This method will load a file from the device storage and set the appropriate values.
+    public void loadCarInfo(){
+        SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
+        String yr = carTextInfo.getString("YEAR1","none");
+        String mak = carTextInfo.getString("MAKE1","none");
+        String mod = carTextInfo.getString("MODEL1","none");
+        Boolean cc = carTextInfo.getBoolean("1CURRENTCAR?", false);
+        if(cc == true) {
+            year = yr;
+            make = mak;
+            model = mod;
+        }
+        else {
+            String updateCar1 = "Year: " + yr + " " + "Make: " + mak + " " + "Model: " + mod;
+            
+        }
+    }
+    //Defines what happens when the "Save" button is clicked in the activity.
+    //First, it will update any text views that need to be updated
+    //Then it will check to see which radio button has been pressed. It will then set the static
+    //values to the selected values.
+    //Lastly, it will save the data to be reloaded later.
     public void saveButton(View v){
         //update the text views
         updateCar1();
@@ -40,21 +74,25 @@ public class CarSettingActivity extends AppCompatActivity {
                 if(car1.isChecked()) {
                     //set the static variables with the values in the fields
                     TextView info1 = findViewById(R.id.textViewCar);
+                    currentCarNum = 1;
                     getInfo(info1);
                 }
                 if(car2.isChecked()){
                     //set the static variables with the values in the fields
                     TextView info2 = findViewById(R.id.textViewCar3);
+                    currentCarNum = 2;
                     getInfo(info2);
                 }
                 if(car3.isChecked()) {
                     //set the static variables with the values in the fields
                     TextView info3 = findViewById(R.id.textViewCar4);
+                    currentCarNum = 3;
                     getInfo(info3);
                 }
                 if(car4.isChecked()) {
                     //set the static variables with the values in the fields
                     TextView info4 = findViewById(R.id.textViewCar2);
+                    currentCarNum = 4;
                     getInfo(info4);
                 }
 
@@ -67,9 +105,9 @@ public class CarSettingActivity extends AppCompatActivity {
         info1 = info1.replace("Make:", "!");
         info1 = info1.replace("Model:", "!");
         String[] values = info1.split("!");
-        year = values[0];
-        make = values[1];
-        model = values[2];
+        year = values[1];
+        make = values[2];
+        model = values[3];
     }
     public void updateCar1(){
         EditText yearInp = findViewById(R.id.editText2);
@@ -128,13 +166,75 @@ public class CarSettingActivity extends AppCompatActivity {
         }
 
     }
+    private String[] getCarInfo(TextView info) {
+        String[] results = {"none", "none", "none"};
+        String inf = info.getText().toString();
+        inf = inf.replace("Year:", "!");
+        inf = inf.replace("Make:", "!");
+        inf = inf.replace("Model:", "!");
+        String[] val = inf.split("!");
+        results[0] = val[1];
+        results[1] = val[2];
+        results[2] = val[3];
+        return results;
+    }
 
-
-    //Button for saving the data
-    //This button will save the data in the fields and update the static variables with the
-    //selected car
+    //BuString[] values = info1.split("!"); tton for saving the data
+    //This button will save the data in the fields to the device storage.
     public void saveData(){
+        SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
+        SharedPreferences.Editor edit = carTextInfo.edit();
 
+        String[] results;
+        TextView info1 = findViewById(R.id.textViewCar);
+        results = getCarInfo(info1);
+        edit.putString("YEAR1", results[0]);
+        edit.putString("MAKE2", results[1]);
+        edit.putString("MODEL3", results[2]);
+        if(currentCarNum == 1){
+            edit.putBoolean("1CURRENTCAR?", true);
+        }
+        else{
+            edit.putBoolean("1CURRENTCAR?", false);
+        }
+
+        TextView info2 = findViewById(R.id.textViewCar3);
+        results = getCarInfo(info2);
+        edit.putString("YEAR2", results[0]);
+        edit.putString("MAKE2", results[1]);
+        edit.putString("MODEL2", results[2]);
+        if(currentCarNum == 2){
+            edit.putBoolean("2CURRENTCAR?", true);
+        }
+        else{
+            edit.putBoolean("2CURRENTCAR?", false);
+        }
+
+        TextView info3 = findViewById(R.id.textViewCar4);
+        results = getCarInfo(info3);
+        edit.putString("YEAR3", results[0]);
+        edit.putString("MAKE3", results[1]);
+        edit.putString("MODEL3", results[2]);
+        if(currentCarNum == 3){
+            edit.putBoolean("3CURRENTCAR?", true);
+        }
+        else{
+            edit.putBoolean("3CURRENTCAR?", false);
+        }
+
+        TextView info4 = findViewById(R.id.textViewCar2);
+        results = getCarInfo(info4);
+        edit.putString("YEAR4", results[0]);
+        edit.putString("MAKE4", results[1]);
+        edit.putString("MODEL4", results[2]);
+        if(currentCarNum == 3){
+            edit.putBoolean("4CURRENTCAR?", true);
+        }
+        else{
+            edit.putBoolean("4CURRENTCAR?", false);
+
+        }
+        edit.commit();
     }
 
 
