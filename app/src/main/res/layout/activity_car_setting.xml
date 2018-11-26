@@ -13,7 +13,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
         android:layout_marginTop="10dp"
-        android:text="Year: none Make: none Model: none"
+        android:text="@string/CarSetPlacehold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText5" />
@@ -25,7 +25,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
         android:layout_marginTop="10dp"
-        android:text="Year: none Make: none Model: none"
+        android:text="@string/CarSetPlacehold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
@@ -37,7 +37,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
         android:layout_marginTop="10dp"
-        android:text="Year: none Make: none Model: none"
+        android:text="@string/CarSetPlacehold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -49,7 +49,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
         android:layout_marginTop="10dp"
-        android:text="Year: none Make: none Model: none"
+        android:text="@string/CarSetPlacehold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText8" />
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:onClick="saveButton"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -78,7 +78,7 @@
             android:layout_height="21dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="55dp"
-            android:text="Car 1"
+            android:text="@string/C1"
             app:layout_constraintStart_toEndOf="@+id/textViewCar"
             tools:layout_editor_absoluteY="54dp" />
 
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="21dp"
             android:layout_marginBottom="57dp"
-            android:text="Car 2"
+            android:text="@string/C2"
             app:layout_constraintStart_toEndOf="@+id/textViewCar2"
             tools:layout_editor_absoluteY="99dp" />
 
@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="21dp"
             android:layout_marginBottom="57dp"
-            android:text="Car 3"
+            android:text="@string/C3"
             app:layout_constraintStart_toEndOf="@+id/textViewCar3"
             tools:layout_editor_absoluteY="144dp" />
 
@@ -104,7 +104,7 @@
             android:id="@+id/radioCar4"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:text="Car 4"
+            android:text="@string/C4"
             app:layout_constraintStart_toEndOf="@+id/textViewCar4"
             tools:layout_editor_absoluteY="189dp" />
 
@@ -130,10 +130,10 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/yearHint"
+        android:autofillHints="year1"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCar"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCar" />
 
     <EditText
         android:id="@+id/editText3"
@@ -144,6 +144,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/makeHint"
+        android:autofillHints="make1"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText2"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar" />
@@ -157,6 +158,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/modelHint"
+        android:autofillHints="model1"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText3"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar" />
@@ -170,6 +172,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/yearHint"
+        android:autofillHints="year2"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar3" />
@@ -183,6 +186,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/makeHint"
+        android:autofillHints="make2"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText5"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar3" />
@@ -196,6 +200,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/modelHint"
+        android:autofillHints="model2"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText6"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar3" />
@@ -209,6 +214,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/yearHint"
+        android:autofillHints="year3"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar4" />
@@ -222,6 +228,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/yearHint"
+        android:autofillHints="year4"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar2" />
@@ -235,6 +242,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/makeHint"
+        android:autofillHints="make3"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText8"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar4" />
@@ -248,6 +256,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/modelHint"
+        android:autofillHints="model3"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText10"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar4" />
@@ -261,6 +270,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/makeHint"
+        android:autofillHints="make4"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText9"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar2" />
@@ -274,6 +284,7 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/modelHint"
+        android:autofillHints="model4"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText12"
         app:layout_constraintTop_toBottomOf="@+id/textViewCar2" />

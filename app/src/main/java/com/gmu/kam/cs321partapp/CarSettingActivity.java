@@ -20,6 +20,7 @@ public class CarSettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_setting);
+        setTitle(getResources().getString(R.string.AppTitle));
         //load from preferences
         loadCarInfo();
     }

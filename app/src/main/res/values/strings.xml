@@ -47,4 +47,11 @@
     <string name="oFilt">Oil Filter</string>
     <string name="aFilt">Air Filter</string>
     <string name="fFilt">Fuel Filter</string>
+    <string name="CarSetPlacehold">Year: none Make: none Model: none</string>
+    <string name="save">Save</string>
+    <string name="C1">Car 1</string>
+    <string name="C2">Car 2</string>
+    <string name="C3">Car 3</string>
+    <string name="C4">Car 4</string>
+    <string name="AppTitle">Auto Part Picker</string>
 </resources>

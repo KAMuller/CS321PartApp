@@ -62,6 +62,7 @@ public class ElectricActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electric);
+        setTitle(getResources().getString(R.string.AppTitle));
     }
 
     @Override

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 /*
@@ -18,16 +20,36 @@ public class partSearcher
 	
 	public partSearcher(String key)
 	{
+        //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver", "/data/app/com.android.chrome-w4bCuxlU27VyB5idGlaL9w==/base.apk");
 		this.key = key;
         usaSearch();
         walmartSearch();
         carpartsSearch();
+
+		//if need just change the path to chrome on machine
+
 	}
-	
+
+    public WebDriver getMobileChromeDriver() {
+        System.setProperty("webdriver.chrome.driver", "/home/kiran24/Downloads/chromedriver");
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+       // chromeOptions.addArguments("port");
+        chromeOptions.setExperimentalOption(
+                "androidPackage", "com.android.chrome");
+        chromeOptions.setExperimentalOption("androidDeviceSerial", "deviceId emulator-5554");
+
+        return new ChromeDriver(chromeOptions);
+    }
+
 	public void usaSearch()
 	{
-		WebDriver driver = new FirefoxDriver();
-        driver.get("https://www.usautoparts.net");
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
+        //driver.get("https://www.usautoparts.net");
+        driver.navigate().to("https://www.usautoparts.net");
+        final String url = driver.getCurrentUrl();
 
         WebElement element = driver.findElement(By.name("Ntt"));
         element.click();
@@ -36,11 +58,11 @@ public class partSearcher
         element.submit();
 
         //System.out.println("Page title is: " + driver.getTitle());
-        final String url = driver.getCurrentUrl();
+        
 
         while(driver.getCurrentUrl().equals(url))
         {
-
+        	System.out.println(driver.getCurrentUrl());
         }
 
         resultUrls.add(driver.getCurrentUrl());
@@ -50,16 +72,19 @@ public class partSearcher
 
 	public void walmartSearch()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
 
-        driver.get("https://www.walmart.com");
+        driver.navigate().to("https://www.walmart.com");
+        final String url = driver.getCurrentUrl();
+
        
         WebElement element = driver.findElement(By.name("query"));
         element.click();
         element.sendKeys(key);
 
         element.submit();
-        final String url = driver.getCurrentUrl();
+        //final String url = driver.getCurrentUrl();
 
         while(driver.getCurrentUrl().equals(url))
         {
@@ -72,16 +97,17 @@ public class partSearcher
 
 	public void carpartsSearch()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
 
-        driver.get("https://www.carparts.com");
+		driver.navigate().to("https://www.carparts.com");
+        final String url = driver.getCurrentUrl();
        
         WebElement element = driver.findElement(By.name("Ntt"));
         element.click();
         element.sendKeys(key);
 
         element.submit();
-        final String url = driver.getCurrentUrl();
 
         while(driver.getCurrentUrl().equals(url))
         {
@@ -92,17 +118,19 @@ public class partSearcher
         driver.quit();
 	}
 
-	public static void carIdSearch(String key)
+	public void carIdSearch()
 	{
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
 
-        driver.get("https://www.carid.com");
+		driver.navigate().to("https://www.carid.com");
+        final String url = driver.getCurrentUrl();
+
         WebElement element = driver.findElement(By.name("headsearch-field-input"));
         element.click();
         element.sendKeys(key);
 
         element.submit();
-        final String url = driver.getCurrentUrl();
 
         while(driver.getCurrentUrl().equals(url))
         {
@@ -118,18 +146,15 @@ public class partSearcher
 		return resultUrls;
 	}
 
-//    public static void main(String[] args) {
-//        // Create a new instance of the Firefox driver
-//        // Notice that the remainder of the code relies on the interface,
-//        // not the implementation.
-//        String key = "Toyota Corolla 2016 tires";
-//        partSearcher p = new partSearcher(key);
-//        p.usaSearch();
-//        p.walmartSearch();
-//        p.carpartsSearch();
-//        for(String str: resultUrls)
-//        {
-//        	System.out.println(str);
-//        }
-//    }
+    public static void main(String[] args) {
+        String key = "Toyota Corolla 2016 tires";
+        partSearcher p = new partSearcher(key);
+        p.usaSearch();
+        p.walmartSearch();
+        p.carpartsSearch();
+        for(String str: resultUrls)
+        {
+        	System.out.println(str);
+        }
+    }
 }

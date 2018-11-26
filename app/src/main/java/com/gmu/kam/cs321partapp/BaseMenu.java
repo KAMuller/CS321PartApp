@@ -2,6 +2,7 @@ package com.gmu.kam.cs321partapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class BaseMenu extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_menu);
+        setTitle(getResources().getString(R.string.AppTitle));
 
     }
 
@@ -36,9 +38,9 @@ public class BaseMenu extends AppCompatActivity {
         TextView currCar = findViewById(R.id.textView4);
         String carText;
 
-        //CarSettingActivity.year = "1986";
-        //CarSettingActivity.make = "BMW";
-        //CarSettingActivity.model = "325es";
+        CarSettingActivity.year = "1986";
+        CarSettingActivity.make = "BMW";
+        CarSettingActivity.model = "325es";
 
         if(CarSettingActivity.year != null && CarSettingActivity.make != null && CarSettingActivity.model != null){
             carText = "Year: " + CarSettingActivity.year + "  " + "Make: " + CarSettingActivity.make + "  " + "Model: " + CarSettingActivity.model;

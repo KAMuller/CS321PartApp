@@ -31,5 +31,6 @@ public class CatSearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cat_search);
+        setTitle(getResources().getString(R.string.AppTitle));
     }
 }
