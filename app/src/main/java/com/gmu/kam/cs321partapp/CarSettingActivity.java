@@ -23,78 +23,73 @@ public class CarSettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_car_setting);
         //load from preferences
         final Button saveButton = findViewById(R.id.button7);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //is the button checked?
-                boolean checked = ((RadioButton) v).isChecked();
-                //Which radio button was checked?
-                switch (v.getId()){
-                    case R.id.radioCar1:
-                        if(checked){
-                            //set the static variables with the values in the fields
-                            EditText yearInp = findViewById(R.id.editText2);
-                            year = yearInp.getText().toString();
+    }
 
-                            EditText makeInp = findViewById(R.id.editText3);
-                            make = makeInp.getText().toString();
+    public void saveButton(View view){
+        boolean checked = ((RadioButton)view).isChecked();
+        //Which radio button was checked?
+        switch (view.getId()){
+            case R.id.radioCar1:
+                if(checked){
+                    //set the static variables with the values in the fields
+                    EditText yearInp = findViewById(R.id.editText2);
+                    year = yearInp.getText().toString();
 
-                            EditText modelInp = findViewById(R.id.editText4);
-                            model = modelInp.getText().toString();
-                        }
-                        break;
-                    case R.id.radioCar2:
-                        if(checked){
-                            //set the static variables with the values in the fields
-                            EditText yearInp = findViewById(R.id.editText5);
-                            year = yearInp.getText().toString();
+                    EditText makeInp = findViewById(R.id.editText3);
+                    make = makeInp.getText().toString();
 
-                            EditText makeInp = findViewById(R.id.editText6);
-                            make = makeInp.getText().toString();
+                    EditText modelInp = findViewById(R.id.editText4);
+                    model = modelInp.getText().toString();
+                }
+                break;
+            case R.id.radioCar2:
+                if(checked){
+                    //set the static variables with the values in the fields
+                    EditText yearInp = findViewById(R.id.editText5);
+                    year = yearInp.getText().toString();
 
-                            EditText modelInp = findViewById(R.id.editText7);
-                            model = modelInp.getText().toString();
-                        }
-                        break;
-                    case R.id.radioCar3:
-                        if(checked){
-                            //set the static variables with the values in the fields
-                            EditText yearInp = findViewById(R.id.editText8);
-                            year = yearInp.getText().toString();
+                    EditText makeInp = findViewById(R.id.editText6);
+                    make = makeInp.getText().toString();
 
-                            EditText makeInp = findViewById(R.id.editText10);
-                            make = makeInp.getText().toString();
+                    EditText modelInp = findViewById(R.id.editText7);
+                    model = modelInp.getText().toString();
+                }
+                break;
+            case R.id.radioCar3:
+                if(checked){
+                    //set the static variables with the values in the fields
+                    EditText yearInp = findViewById(R.id.editText8);
+                    year = yearInp.getText().toString();
 
-                            EditText modelInp = findViewById(R.id.editText11);
-                            model = modelInp.getText().toString();
-                        }
-                        break;
-                    case R.id.radioCar4:
-                        if(checked){
-                            //set the static variables with the values in the fields
-                            EditText yearInp = findViewById(R.id.editText9);
-                            year = yearInp.getText().toString();
+                    EditText makeInp = findViewById(R.id.editText10);
+                    make = makeInp.getText().toString();
 
-                            EditText makeInp = findViewById(R.id.editText12);
-                            make = makeInp.getText().toString();
+                    EditText modelInp = findViewById(R.id.editText11);
+                    model = modelInp.getText().toString();
+                }
+                break;
+            case R.id.radioCar4:
+                if(checked){
+                    //set the static variables with the values in the fields
+                    EditText yearInp = findViewById(R.id.editText9);
+                    year = yearInp.getText().toString();
 
-                            EditText modelInp = findViewById(R.id.editText13);
-                            model = modelInp.getText().toString();
-                        }
-                        break;
-                    default:
-                        //please select a current car
-                        break;
-                }//end of switch
-                //update the text views
-                updateCar1();
-                updateCar2();
-                updateCar3();
-                updateCar4();
-                // save the car info.
-            }
-        });
+                    EditText makeInp = findViewById(R.id.editText12);
+                    make = makeInp.getText().toString();
 
+                    EditText modelInp = findViewById(R.id.editText13);
+                    model = modelInp.getText().toString();
+                }
+                break;
+            default:
+                //please select a current car
+                break;
+        }//end of switch
+        //update the text views
+        updateCar1();
+        updateCar2();
+        updateCar3();
+        updateCar4();
     }
 
     public void updateCar1(){
