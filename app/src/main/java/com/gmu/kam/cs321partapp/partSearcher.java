@@ -19,7 +19,8 @@ public class partSearcher
 	
 	public partSearcher(String key)
 	{
-        //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+	    //String path = "C:/chromedriver.exe";
+        //System.setProperty("webdriver.chrome.driver", path);
 
 		this.key = key;
         usaSearch();

@@ -25,6 +25,7 @@ public class KeySearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_key_search);
+        setTitle(getResources().getString(R.string.AppTitle));
     }
 
     @Override

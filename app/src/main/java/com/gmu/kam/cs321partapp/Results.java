@@ -24,6 +24,7 @@ public class Results extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+        setTitle(getResources().getString(R.string.AppTitle));
 
         resultView = findViewById(R.id.textView7);
 
@@ -55,9 +56,9 @@ public class Results extends AppCompatActivity {
 
             //Kiran: put your code here to implement your script and output to the Arraylist below
 
-            partSearcher psearch = new partSearcher(searchTerm);
-            ArrayList<String> urlList = psearch.getFinalList();
-            //ArrayList<String> urlList = new ArrayList<>();
+            //partSearcher psearch = new partSearcher(searchTerm);
+            //ArrayList<String> urlList = psearch.getFinalList();
+            ArrayList<String> urlList = new ArrayList<>();
             urlList.add("https://www.walmart.com/search/?query=acura%20rsx%20brake%20pads");
             urlList.add("https://www.carparts.com/results/?Ntt=acura+rsx+brake+pad&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
             urlList.add("https://www.carid.com/search/acura+rsx+brake+pads/code-0f686e0cd7d00ac950d65108f3c9b244/queryId-fc5dcd3d510cb5a415e0a3119351a192/ymm-0%7CAcura%7CRSX");

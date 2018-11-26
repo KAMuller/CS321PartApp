@@ -2,6 +2,7 @@ package com.gmu.kam.cs321partapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class BaseMenu extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_menu);
+        setTitle(getResources().getString(R.string.AppTitle));
 
     }
 
