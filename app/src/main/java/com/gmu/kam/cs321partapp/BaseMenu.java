@@ -36,9 +36,9 @@ public class BaseMenu extends AppCompatActivity {
         TextView currCar = findViewById(R.id.textView4);
         String carText;
 
-        //CarSettingActivity.year = "1986";
-        //CarSettingActivity.make = "BMW";
-        //CarSettingActivity.model = "325es";
+        CarSettingActivity.year = "1986";
+        CarSettingActivity.make = "BMW";
+        CarSettingActivity.model = "325es";
 
         if(CarSettingActivity.year != null && CarSettingActivity.make != null && CarSettingActivity.model != null){
             carText = "Year: " + CarSettingActivity.year + "  " + "Make: " + CarSettingActivity.make + "  " + "Model: " + CarSettingActivity.model;

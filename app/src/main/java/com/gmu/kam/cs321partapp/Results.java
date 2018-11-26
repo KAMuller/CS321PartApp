@@ -17,6 +17,7 @@ public class Results extends AppCompatActivity {
 
     private ArrayList<Crawl.Product> results;
     private TextView resultView;
+    private String searchTerm;
 
 
     @Override
@@ -25,6 +26,7 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
         resultView = findViewById(R.id.textView7);
+
     }
 
     @Override
@@ -36,7 +38,8 @@ public class Results extends AppCompatActivity {
 
         Intent in = getIntent();
         String keyword = in.getStringExtra("KEYWORD");
-        String searchTerm = CarSettingActivity.year + " " + CarSettingActivity.make + " " + CarSettingActivity.model + " " + keyword;
+        searchTerm = CarSettingActivity.year + " " + CarSettingActivity.make + " " + CarSettingActivity.model + " " + keyword;
+        System.out.print(searchTerm);
 
         resultView.setText("Loading...");
         new DoCrawl().execute(searchTerm);
@@ -52,12 +55,12 @@ public class Results extends AppCompatActivity {
 
             //Kiran: put your code here to implement your script and output to the Arraylist below
 
-            //partSearcher psearch = new partSearcher(searchTermASync);
-            //ArrayList<String> urlList = psearch.getFinalList();
-            ArrayList<String> urlList = new ArrayList<>();
+            partSearcher psearch = new partSearcher(searchTerm);
+            ArrayList<String> urlList = psearch.getFinalList();
+            //ArrayList<String> urlList = new ArrayList<>();
             urlList.add("https://www.walmart.com/search/?query=acura%20rsx%20brake%20pads");
             urlList.add("https://www.carparts.com/results/?Ntt=acura+rsx+brake+pad&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
-            //urlList.add("https://www.carid.com/search/acura+rsx+brake+pads/code-0f686e0cd7d00ac950d65108f3c9b244/queryId-fc5dcd3d510cb5a415e0a3119351a192/ymm-0%7CAcura%7CRSX");
+            urlList.add("https://www.carid.com/search/acura+rsx+brake+pads/code-0f686e0cd7d00ac950d65108f3c9b244/queryId-fc5dcd3d510cb5a415e0a3119351a192/ymm-0%7CAcura%7CRSX");
             urlList.add("https://www.usautoparts.net/catalog?Ntt=acura+rsx+brake+pads&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
             Crawl crawler = new Crawl();
             results = crawler.crawlSites(urlList);

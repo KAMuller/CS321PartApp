@@ -19,9 +19,15 @@ public class partSearcher
 	
 	public partSearcher(String key)
 	{
+        //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+
 		this.key = key;
+        usaSearch();
+        walmartSearch();
+        carpartsSearch();
+
 		//if need just change the path to chrome on machine
-        //System.setProperty("webdriver.chrome.driver", "/home/kiran24/Downloads/chromedriver");
+
 	}
 	
 	public void usaSearch()
