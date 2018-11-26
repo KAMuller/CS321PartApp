@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 public class Results extends AppCompatActivity {
 
-    //crawler input format String "Year Make Model Keyword"
+    //crawler input is searchTerm String in OnResume method"
 
+    private ArrayList<Crawl.Product> results;
 
 
 
@@ -23,5 +26,15 @@ public class Results extends AppCompatActivity {
 
         Intent in = getIntent();
         String keyword = in.getStringExtra("KEYWORD");
+        String searchTerm = CarSettingActivity.year + " " + CarSettingActivity.make + " " + CarSettingActivity.model + " " + keyword;
+        //Kiran: put your code here to implement your script and output to the Arraylist below
+
+
+        ArrayList<String> urls;
+        Crawl crawler = new Crawl(urls);
+        ArrayList<Crawl.Product> results = crawler.getProducts();
+        
+
+
     }
 }
