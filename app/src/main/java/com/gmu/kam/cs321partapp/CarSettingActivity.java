@@ -1,16 +1,12 @@
 package com.gmu.kam.cs321partapp;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import java.io.File;
-import java.io.IOException;
 
-import android.content.Context;
 
 /*
     Created by Jonathan on 11/12/18
