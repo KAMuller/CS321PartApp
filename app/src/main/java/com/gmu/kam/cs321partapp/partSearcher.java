@@ -49,18 +49,12 @@ public class partSearcher
 	{
 		WebDriver driver = new FirefoxDriver();
 
-        // And now use this to visit Google
         driver.get("https://www.walmart.com");
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
-
-        // Find the text input element by its name
+       
         WebElement element = driver.findElement(By.name("query"));
         element.click();
-        // Enter something to search for
         element.sendKeys(key);
 
-        // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
         final String url = driver.getCurrentUrl();
 
@@ -77,18 +71,12 @@ public class partSearcher
 	{
 		WebDriver driver = new FirefoxDriver();
 
-        // And now use this to visit Google
         driver.get("https://www.carparts.com");
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
-
-        // Find the text input element by its name
+       
         WebElement element = driver.findElement(By.name("Ntt"));
         element.click();
-        // Enter something to search for
         element.sendKeys(key);
 
-        // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
         final String url = driver.getCurrentUrl();
 
@@ -105,18 +93,11 @@ public class partSearcher
 	{
 		WebDriver driver = new FirefoxDriver();
 
-        // And now use this to visit Google
         driver.get("https://www.carid.com");
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
-
-        // Find the text input element by its name
         WebElement element = driver.findElement(By.name("headsearch-field-input"));
         element.click();
-        // Enter something to search for
         element.sendKeys(key);
 
-        // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
         final String url = driver.getCurrentUrl();
 
