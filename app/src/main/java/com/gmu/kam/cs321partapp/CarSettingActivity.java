@@ -22,7 +22,6 @@ public class CarSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_setting);
         //load from preferences
-        final Button saveButton = findViewById(R.id.button7);
     }
 
     public void saveButton(View view){
