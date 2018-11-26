@@ -19,6 +19,9 @@ public class partSearcher
 	public partSearcher(String key)
 	{
 		this.key = key;
+        usaSearch();
+        walmartSearch();
+        carpartsSearch();
 	}
 	
 	public void usaSearch()

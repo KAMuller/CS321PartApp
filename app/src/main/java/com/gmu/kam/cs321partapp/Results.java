@@ -34,10 +34,10 @@ public class Results extends AppCompatActivity {
         String searchTerm = CarSettingActivity.year + " " + CarSettingActivity.make + " " + CarSettingActivity.model + " " + keyword;
         //Kiran: put your code here to implement your script and output to the Arraylist below
 
-
-        ArrayList<String> urls;
+        partSearcher psearch = new partSearcher(searchTerm);
+        ArrayList<String> urls = psearch.getFinalList();
         Crawl crawler = new Crawl();
-        //results = crawler.crawlSites(urls);
+        results = crawler.crawlSites(urls);
         Collections.sort(results);
 
         String resOutput;
@@ -46,8 +46,7 @@ public class Results extends AppCompatActivity {
 
             resultView.setTextColor(Color.BLACK);
             int numProducts = results.size();
-            //placeholder
-            resOutput = "arraylist is not null";
+
 
             StringBuilder resBuild = new StringBuilder();
             for(int i = 0; i<numProducts; i++){
@@ -55,10 +54,14 @@ public class Results extends AppCompatActivity {
                 resBuild.append(":\n");
                 resBuild.append("Name: ");
                 resBuild.append(results.get(i).prodName + "\n");
+                resBuild.append("Price: ");
+                resBuild.append(results.get(i).prodPrice + "\n");
+                resBuild.append("Link: ");
+                resBuild.append(results.get(i).prodLink);
+                resBuild.append("\n");
 
             }
-
-
+            resOutput = resBuild.toString();
         }
         else{
 
