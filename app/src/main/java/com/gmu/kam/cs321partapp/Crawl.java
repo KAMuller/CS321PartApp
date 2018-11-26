@@ -222,9 +222,21 @@ public class Crawl
         }
 
         @Override
-        public int compareTo(Product o)
-        {
-            return o.prodPrice.compareTo(this.prodPrice);
+        public int compareTo(Product o) {
+            int res;
+            float t = Float.parseFloat(this.prodPrice.substring(1));
+            float fo = Float.parseFloat(o.prodPrice.substring(1));
+            float eps = (float) 0.001;
+            if(Math.abs(t - fo) < eps){
+                res = 0;
+            }
+            else if (t < fo){
+                res = -1;
+            }
+            else{
+                res = 1;
+            }
+            return res;
         }
     }
 }
