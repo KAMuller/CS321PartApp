@@ -12,11 +12,11 @@ import org.jsoup.nodes.Element;
  */
 public class Crawl
 {
-    ArrayList<String> urls;
 
-    public Crawl(ArrayList<String> urlsinput)
+
+    public Crawl()
     {
-        this.urls=urlsinput;
+
     }
 
     public static ArrayList<Product> crawlSites(ArrayList<String> urlList)

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Results extends AppCompatActivity {
 
@@ -35,9 +36,9 @@ public class Results extends AppCompatActivity {
 
 
         ArrayList<String> urls;
-        //Crawl crawler = new Crawl(urls);
-        //results = crawler.getProducts();
-        //results.sort();
+        Crawl crawler = new Crawl();
+        //results = crawler.crawlSites(urls);
+        Collections.sort(results);
 
         String resOutput;
 
@@ -50,6 +51,10 @@ public class Results extends AppCompatActivity {
 
             StringBuilder resBuild = new StringBuilder();
             for(int i = 0; i<numProducts; i++){
+                resBuild.append(i+1);
+                resBuild.append(":\n");
+                resBuild.append("Name: ");
+                resBuild.append(results.get(i).prodName + "\n");
 
             }
 
