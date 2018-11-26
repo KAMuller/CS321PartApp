@@ -107,11 +107,12 @@ public class CarSettingActivity extends AppCompatActivity {
         saveData();
     }
     public void getInfo(TextView info) {
-        String info1 = info.toString();
+        String info1 = info.getText().toString();
         info1 = info1.replace("Year:", "!");
         info1 = info1.replace("Make:", "!");
         info1 = info1.replace("Model:", "!");
-        String[] values = info1.split("!");
+        String[] values = new String[3];
+        values = info1.split("!", 3);
         year = values[0];
         make = values[1];
         model = values[2];
@@ -124,7 +125,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText4);
         String modelText = modelInp.getText().toString();
         if(yearText != null || makeText != null || modelText != null) {
-            String updateCar1 = "Year: " + yearText + " " + "Make " + makeText + " " + "Model: " + modelText;
+            String updateCar1 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
             TextView car1 = findViewById(R.id.textViewCar);
             car1.setText(updateCar1);
         }
@@ -179,16 +180,8 @@ public class CarSettingActivity extends AppCompatActivity {
     //This button will save the data in the fields and update the static variables with the
     //selected car
     public void saveData(){
-
+        
     }
-    private File getTempFile(Context context, String url){
-        try{
-            String carInfoFile = Uri.parse(url).getLastPathSegment();
-            return File.createTempFile(carInfoFile, null, context.getCacheDir());
-        }catch (IOException e){
 
-        }
-       return null;
-    }
 
 }
