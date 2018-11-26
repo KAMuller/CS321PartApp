@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 
 /*
@@ -30,21 +31,53 @@ public class CarSettingActivity extends AppCompatActivity {
                     case R.id.radioCar1:
                         if(checked){
                             //set the static variables with the values in the fields
+                            EditText yearInp = findViewById(R.id.editText2);
+                            year = yearInp.getText().toString();
+
+                            EditText makeInp = findViewById(R.id.editText3);
+                            make = makeInp.getText().toString();
+
+                            EditText modelInp = findViewById(R.id.editText4);
+                            model = modelInp.getText().toString();
                         }
                         break;
                     case R.id.radioCar2:
                         if(checked){
                             //set the static variables with the values in the fields
+                            EditText yearInp = findViewById(R.id.editText5);
+                            year = yearInp.getText().toString();
+
+                            EditText makeInp = findViewById(R.id.editText6);
+                            make = makeInp.getText().toString();
+
+                            EditText modelInp = findViewById(R.id.editText7);
+                            model = modelInp.getText().toString();
                         }
                         break;
                     case R.id.radioCar3:
                         if(checked){
                             //set the static variables with the values in the fields
+                            EditText yearInp = findViewById(R.id.editText8);
+                            year = yearInp.getText().toString();
+
+                            EditText makeInp = findViewById(R.id.editText10);
+                            make = makeInp.getText().toString();
+
+                            EditText modelInp = findViewById(R.id.editText11);
+                            model = modelInp.getText().toString();
                         }
                         break;
                     case R.id.radioCar4:
                         if(checked){
                             //set the static variables with the values in the fields
+                            EditText yearInp = findViewById(R.id.editText9);
+                            year = yearInp.getText().toString();
+
+                            EditText makeInp = findViewById(R.id.editText12);
+                            make = makeInp.getText().toString();
+
+                            EditText modelInp = findViewById(R.id.editText13);
+                            model = modelInp.getText().toString();
                         }
                         break;
                 }//end of switch
