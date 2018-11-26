@@ -82,7 +82,7 @@ public class CarSettingActivity extends AppCompatActivity {
         String makeText = makeInp.getText().toString();
         EditText modelInp = findViewById(R.id.editText4);
         String modelText = modelInp.getText().toString();
-        if(yearText != null || makeText != null || modelText != null) {
+        if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()) {
             String updateCar1 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
             TextView car1 = findViewById(R.id.textViewCar);
             car1.setText(updateCar1);
@@ -96,7 +96,7 @@ public class CarSettingActivity extends AppCompatActivity {
         String makeText = makeInp.getText().toString();
         EditText modelInp = findViewById(R.id.editText7);
         String modelText = modelInp.getText().toString();
-        if(yearText != null || makeText != null || modelText != null){
+        if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()){
             String updateCar2 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
             TextView car2 = findViewById(R.id.textViewCar3);
             car2.setText(updateCar2);
@@ -111,7 +111,7 @@ public class CarSettingActivity extends AppCompatActivity {
         String makeText = makeInp.getText().toString();
         EditText modelInp = findViewById(R.id.editText11);
         String modelText = modelInp.getText().toString();
-        if(yearText != null || makeText != null || modelText != null) {
+        if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()) {
             String updateCar3 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
             TextView car3 = findViewById(R.id.textViewCar4);
             car3.setText(updateCar3);
@@ -125,7 +125,7 @@ public class CarSettingActivity extends AppCompatActivity {
         String makeText = makeInp.getText().toString();
         EditText modelInp = findViewById(R.id.editText13);
         String modelText = modelInp.getText().toString();
-        if(yearText != null || makeText != null || modelText != null){
+        if(!yearText.isEmpty()|| !makeText.isEmpty() || !modelText.isEmpty()){
             String updateCar4 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
             TextView car4 = findViewById(R.id.textViewCar2);
             car4.setText(updateCar4);
