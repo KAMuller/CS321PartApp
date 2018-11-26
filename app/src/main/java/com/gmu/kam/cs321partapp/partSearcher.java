@@ -1,23 +1,27 @@
 package com.gmu.kam.cs321partapp;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 /*
  * Created By Kiran Saravanakumar
  * */
 
-public class partSearcher  {
-	static ArrayList<String> resultUrls = new ArrayList<String>();
-	public static void usaSearch(String key)
+public class partSearcher 
+{
+	private static ArrayList<String> resultUrls = new ArrayList<String>();
+	private String key = "";
+	
+	public partSearcher(String key)
+	{
+		this.key = key;
+	}
+	
+	public void usaSearch()
 	{
 		WebDriver driver = new FirefoxDriver();
         driver.get("https://www.usautoparts.net");
@@ -41,7 +45,7 @@ public class partSearcher  {
         driver.quit();
 	}
 
-	public static void walmartSearch(String key)
+	public void walmartSearch()
 	{
 		WebDriver driver = new FirefoxDriver();
 
@@ -69,7 +73,7 @@ public class partSearcher  {
         driver.quit();
 	}
 
-	public static void carpartsSearch(String key)
+	public void carpartsSearch()
 	{
 		WebDriver driver = new FirefoxDriver();
 
@@ -124,18 +128,24 @@ public class partSearcher  {
         resultUrls.add(driver.getCurrentUrl());
         driver.quit();
 	}
+	
+	public ArrayList<String> getFinalList()
+	{
+		return resultUrls;
+	}
 
-    public static void main(String[] args) {
-        // Create a new instance of the Firefox driver
-        // Notice that the remainder of the code relies on the interface,
-        // not the implementation.
-        String key = "Toyota Corolla 2016 tires";
-        usaSearch(key);
-        walmartSearch(key);
-        carpartsSearch(key);
-        for(String str: resultUrls)
-        {
-        	System.out.println(str);
-        }
-    }
+//    public static void main(String[] args) {
+//        // Create a new instance of the Firefox driver
+//        // Notice that the remainder of the code relies on the interface,
+//        // not the implementation.
+//        String key = "Toyota Corolla 2016 tires";
+//        partSearcher p = new partSearcher(key);
+//        p.usaSearch();
+//        p.walmartSearch();
+//        p.carpartsSearch();
+//        for(String str: resultUrls)
+//        {
+//        	System.out.println(str);
+//        }
+//    }
 }
