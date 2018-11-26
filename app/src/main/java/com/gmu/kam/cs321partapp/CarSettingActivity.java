@@ -108,9 +108,9 @@ public class CarSettingActivity extends AppCompatActivity {
     }
     public void getInfo(TextView info) {
         String info1 = info.toString();
-        info1.replace("Year:", "!");
-        info1.replace("Make:", "!");
-        info1.replace("Model:", "!");
+        info1 = info1.replace("Year:", "!");
+        info1 = info1.replace("Make:", "!");
+        info1 = info1.replace("Model:", "!");
         String[] values = info1.split("!");
         year = values[0];
         make = values[1];
