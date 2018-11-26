@@ -24,7 +24,7 @@ public class CarSettingActivity extends AppCompatActivity {
         //load from preferences
     }
 
-    public void saveButton(){
+    public void saveButton(View v){
         RadioButton car1 = findViewById(R.id.radioCar1);
         RadioButton car2 = findViewById(R.id.radioCar2);
         RadioButton car3 = findViewById(R.id.radioCar3);
@@ -89,7 +89,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText4);
         String modelText = modelInp.getText().toString();
         String updateCar1 = "Year: " + yearText + " " + "Make " + makeText + " " + "Model: " + modelText;
-        TextView car1 = findViewById(R.id.textView);
+        TextView car1 = findViewById(R.id.textViewCar);
         car1.setText(updateCar1);
     }
 
