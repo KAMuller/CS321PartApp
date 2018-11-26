@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
 
@@ -19,9 +20,8 @@ public class partSearcher
 	
 	public partSearcher(String key)
 	{
-	    //String path = "C:/chromedriver.exe";
-        //System.setProperty("webdriver.chrome.driver", path);
-
+        //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver", "/data/app/com.android.chrome-w4bCuxlU27VyB5idGlaL9w==/base.apk");
 		this.key = key;
         usaSearch();
         walmartSearch();
@@ -30,10 +30,23 @@ public class partSearcher
 		//if need just change the path to chrome on machine
 
 	}
-	
+
+    public WebDriver getMobileChromeDriver() {
+        System.setProperty("webdriver.chrome.driver", "/home/kiran24/Downloads/chromedriver");
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+       // chromeOptions.addArguments("port");
+        chromeOptions.setExperimentalOption(
+                "androidPackage", "com.android.chrome");
+        chromeOptions.setExperimentalOption("androidDeviceSerial", "deviceId emulator-5554");
+
+        return new ChromeDriver(chromeOptions);
+    }
+
 	public void usaSearch()
 	{
-		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
         //driver.get("https://www.usautoparts.net");
         driver.navigate().to("https://www.usautoparts.net");
         final String url = driver.getCurrentUrl();
@@ -59,7 +72,8 @@ public class partSearcher
 
 	public void walmartSearch()
 	{
-		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
 
         driver.navigate().to("https://www.walmart.com");
         final String url = driver.getCurrentUrl();
@@ -83,7 +97,8 @@ public class partSearcher
 
 	public void carpartsSearch()
 	{
-		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
 
 		driver.navigate().to("https://www.carparts.com");
         final String url = driver.getCurrentUrl();
@@ -103,9 +118,10 @@ public class partSearcher
         driver.quit();
 	}
 
-	public static void carIdSearch(String key)
+	public void carIdSearch()
 	{
-		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new ChromeDriver();
+        WebDriver driver = getMobileChromeDriver();
 
 		driver.navigate().to("https://www.carid.com");
         final String url = driver.getCurrentUrl();
@@ -130,15 +146,15 @@ public class partSearcher
 		return resultUrls;
 	}
 
-//    public static void main(String[] args) {
-//        String key = "Toyota Corolla 2016 tires";
-//        partSearcher p = new partSearcher(key);
-//        p.usaSearch();
-//        p.walmartSearch();
-//        p.carpartsSearch();
-//        for(String str: resultUrls)
-//        {
-//        	System.out.println(str);
-//        }
-//    }
+    public static void main(String[] args) {
+        String key = "Toyota Corolla 2016 tires";
+        partSearcher p = new partSearcher(key);
+        p.usaSearch();
+        p.walmartSearch();
+        p.carpartsSearch();
+        for(String str: resultUrls)
+        {
+        	System.out.println(str);
+        }
+    }
 }
