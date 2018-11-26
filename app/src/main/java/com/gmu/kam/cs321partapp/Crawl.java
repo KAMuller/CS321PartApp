@@ -1,5 +1,3 @@
-package com.gmu.kam.cs321partapp;
-
 import java.io.IOException;
 import java.util.*;
 import org.jsoup.*;
@@ -12,11 +10,11 @@ import org.jsoup.nodes.Element;
  */
 public class Crawl
 {
+    ArrayList<String> urls;
 
-
-    public Crawl()
+    public Crawl(ArrayList<String> urlsinput)
     {
-
+        this.urls=urlsinput;
     }
 
     public static ArrayList<Product> crawlSites(ArrayList<String> urlList)
@@ -123,6 +121,7 @@ public class Crawl
         {
             Product temp = new Product();
             temp.prodName=prodLinks.get(i).childNode(1).outerHtml().replaceAll("<h1>", "");
+            temp.prodName=prodLinks.get(i).childNode(1).outerHtml().replaceAll("</h1>", "");
             temp.prodPrice=prodPrices.get(i).text();
             temp.prodLink="https://www.carparts.com" + prodLinks.get(i).attr("href");
             temp.prodImg=prodImgs.get(i).attr("src");
@@ -148,7 +147,7 @@ public class Crawl
         System.out.println("Document received from webpage at " + url);
 
         ArrayList<Element> prodNames;
-        prodNames = document.getElementsByClass("productName");
+        prodNames = document.getElementsByAttributeValueMatching("class","productName");
 
         ArrayList<Element> prodPrices;
         prodPrices = document.getElementsByAttributeValueStarting("class", "formValue ourPrice");
@@ -222,21 +221,9 @@ public class Crawl
         }
 
         @Override
-        public int compareTo(Product o) {
-            int res;
-            float t = Float.parseFloat(this.prodPrice.substring(this.prodPrice.lastIndexOf('$') + 1));
-            float fo = Float.parseFloat(o.prodPrice.substring(o.prodPrice.lastIndexOf('$') + 1));
-            float eps = (float) 0.001;
-            if(Math.abs(t - fo) < eps){
-                res = 0;
-            }
-            else if (t < fo){
-                res = -1;
-            }
-            else{
-                res = 1;
-            }
-            return res;
+        public int compareTo(Product o)
+        {
+            return o.prodPrice.compareTo(this.prodPrice);
         }
     }
 }
