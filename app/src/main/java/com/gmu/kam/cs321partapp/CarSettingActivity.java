@@ -47,11 +47,55 @@ public class CarSettingActivity extends AppCompatActivity {
             year = yr;
             make = mak;
             model = mod;
+            currentCarNum = 1;
         }
-        else {
-            String updateCar1 = "Year: " + yr + " " + "Make: " + mak + " " + "Model: " + mod;
-            
+            String updateCar1 = "Year:" + yr + " " + "Make:" + mak + " " + "Model:" + mod;
+            TextView car1 = findViewById(R.id.textViewCar);
+            car1.setText(updateCar1);
+
+        String yr2 = carTextInfo.getString("YEAR2","none");
+        String mak2 = carTextInfo.getString("MAKE2","none");
+        String mod2 = carTextInfo.getString("MODEL2","none");
+        Boolean cc2 = carTextInfo.getBoolean("2CURRENTCAR?", false);
+        if(cc2 == true) {
+            year = yr2;
+            make = mak2;
+            model = mod2;
+            currentCarNum = 2;
         }
+            String updateCar2 = "Year:" + yr2 + " " + "Make:" + mak2 + " " + "Model:" + mod2;
+            TextView car2 = findViewById(R.id.textViewCar3);
+            car2.setText(updateCar2);
+
+        String yr3 = carTextInfo.getString("YEAR3","none");
+        String mak3 = carTextInfo.getString("MAKE3","none");
+        String mod3 = carTextInfo.getString("MODEL3","none");
+        Boolean cc3 = carTextInfo.getBoolean("3CURRENTCAR?", false);
+        if(cc3 == true) {
+            year = yr3;
+            make = mak3;
+            model = mod3;
+            currentCarNum = 3;
+        }
+            String updateCar3 = "Year:" + yr3 + " " + "Make:" + mak3 + " " + "Model:" + mod3;
+            TextView car3 = findViewById(R.id.textViewCar4);
+            car3.setText(updateCar3);
+
+        String yr4 = carTextInfo.getString("YEAR4","none");
+        String mak4 = carTextInfo.getString("MAKE4","none");
+        String mod4 = carTextInfo.getString("MODEL4","none");
+        Boolean cc4 = carTextInfo.getBoolean("4CURRENTCAR?", false);
+        if(cc4 == true) {
+            year = yr4;
+            make = mak4;
+            model = mod4;
+            currentCarNum = 4;
+        }
+
+            String updateCar4 = "Year:" + yr4 + " " + "Make:" + mak4 + " " + "Model:" + mod4;
+            TextView car4 = findViewById(R.id.textViewCar2);
+            car4.setText(updateCar4);                                                        
+        
     }
     //Defines what happens when the "Save" button is clicked in the activity.
     //First, it will update any text views that need to be updated
@@ -117,7 +161,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText4);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()) {
-            String updateCar1 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
+            String updateCar1 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
             TextView car1 = findViewById(R.id.textViewCar);
             car1.setText(updateCar1);
         }
@@ -131,7 +175,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText7);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()){
-            String updateCar2 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
+            String updateCar2 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
             TextView car2 = findViewById(R.id.textViewCar3);
             car2.setText(updateCar2);
         }
@@ -146,7 +190,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText11);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()) {
-            String updateCar3 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
+            String updateCar3 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
             TextView car3 = findViewById(R.id.textViewCar4);
             car3.setText(updateCar3);
         }
@@ -160,7 +204,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText13);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty()|| !makeText.isEmpty() || !modelText.isEmpty()){
-            String updateCar4 = "Year: " + yearText + " " + "Make: " + makeText + " " + "Model: " + modelText;
+            String updateCar4 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
             TextView car4 = findViewById(R.id.textViewCar2);
             car4.setText(updateCar4);
         }
@@ -189,8 +233,8 @@ public class CarSettingActivity extends AppCompatActivity {
         TextView info1 = findViewById(R.id.textViewCar);
         results = getCarInfo(info1);
         edit.putString("YEAR1", results[0]);
-        edit.putString("MAKE2", results[1]);
-        edit.putString("MODEL3", results[2]);
+        edit.putString("MAKE1", results[1]);
+        edit.putString("MODEL1", results[2]);
         if(currentCarNum == 1){
             edit.putBoolean("1CURRENTCAR?", true);
         }
@@ -234,7 +278,7 @@ public class CarSettingActivity extends AppCompatActivity {
             edit.putBoolean("4CURRENTCAR?", false);
 
         }
-        edit.commit();
+        edit.apply();
     }
 
 
