@@ -45,64 +45,23 @@ public class CarSettingActivity extends AppCompatActivity {
                     //set the static variables with the values in the fields
                     TextView info1 = findViewById(R.id.textViewCar);
                     getInfo(info1);
-                    /*
-                    EditText yearInp = findViewById(R.id.editText2);
-                    year = yearInp.getText().toString();
-
-                    EditText makeInp = findViewById(R.id.editText3);
-                    make = makeInp.getText().toString();
-
-                    EditText modelInp = findViewById(R.id.editText4);
-                    model = modelInp.getText().toString();
-                    */
                 }
                 if(car2.isChecked()){
                     //set the static variables with the values in the fields
                     TextView info2 = findViewById(R.id.textViewCar3);
                     getInfo(info2);
-                    /*
-                    EditText yearInp = findViewById(R.id.editText5);
-                    year = yearInp.getText().toString();
-
-                    EditText makeInp = findViewById(R.id.editText6);
-                    make = makeInp.getText().toString();
-
-                    EditText modelInp = findViewById(R.id.editText7);
-                    model = modelInp.getText().toString();
-                    */
                 }
                 if(car3.isChecked()) {
                     //set the static variables with the values in the fields
                     TextView info3 = findViewById(R.id.textViewCar4);
                     getInfo(info3);
-                    /*
-                    EditText yearInp = findViewById(R.id.editText8);
-                    year = yearInp.getText().toString();
-
-                    EditText makeInp = findViewById(R.id.editText10);
-                    make = makeInp.getText().toString();
-
-                    EditText modelInp = findViewById(R.id.editText11);
-                    model = modelInp.getText().toString();
-                    */
                 }
                 if(car4.isChecked()) {
                     //set the static variables with the values in the fields
                     TextView info4 = findViewById(R.id.textViewCar2);
                     getInfo(info4);
-                    /*
-                    EditText yearInp = findViewById(R.id.editText9);
-                    year = yearInp.getText().toString();
-
-                    EditText makeInp = findViewById(R.id.editText12);
-                    make = makeInp.getText().toString();
-
-                    EditText modelInp = findViewById(R.id.editText13);
-                    model = modelInp.getText().toString();
-                    */
                 }
-
-
+                
         //save the data
         saveData();
     }
@@ -180,7 +139,7 @@ public class CarSettingActivity extends AppCompatActivity {
     //This button will save the data in the fields and update the static variables with the
     //selected car
     public void saveData(){
-        
+
     }
 
 
