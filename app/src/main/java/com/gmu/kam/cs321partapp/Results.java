@@ -39,7 +39,7 @@ public class Results extends AppCompatActivity {
         searchTerm = CarSettingActivity.year + " " + CarSettingActivity.make + " " + CarSettingActivity.model + " " + keyword;
 
 //sets the placeholder loading text
-        resultView.setText("Loading...");
+        resultView.setText("Searching for " + searchTerm + "...");
         //calls the nested AsyncTask class to execute its code in a separate thread
         new DoCrawl().execute(searchTerm);
 
@@ -53,8 +53,15 @@ public class Results extends AppCompatActivity {
 
 //initializes partSearcher and gets the ArrayList<String> of the urls to be crawled from the searchTerm String
             //partSearcher is not functional currently
-            partSearcher psearch = new partSearcher(searchTerm);
-            ArrayList<String> urlList = psearch.getFinalList();
+            //partSearcher psearch = new partSearcher(searchTerm);
+            //ArrayList<String> urlList = psearch.getFinalList();
+
+            ArrayList<String> urlList = new ArrayList<>();
+            urlList.add("https://www.walmart.com/search/?query=acura%20rsx%20brake%20pads");
+            urlList.add("https://www.carparts.com/results/?Ntt=acura+rsx+brake+pad&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
+            urlList.add("https://www.carid.com/search/acura+rsx+brake+pads/code-0f686e0cd7d00ac950d65108f3c9b244/queryId-fc5dcd3d510cb5a415e0a3119351a192/ymm-0%7CAcura%7CRSX");
+            urlList.add("https://www.usautoparts.net/catalog?Ntt=acura+rsx+brake+pads&searchType=global&N=0&uts=true&shopId=1&searchType=global&N=0");
+
 //initializes Crawl uses the ArrayList<String> of urls to get and ArrayList<Product> of product objects
             Crawl crawler = new Crawl();
             results = crawler.crawlSites(urlList);
@@ -119,6 +126,6 @@ public class Results extends AppCompatActivity {
             }
 
         }
-        
+
     }
 }
