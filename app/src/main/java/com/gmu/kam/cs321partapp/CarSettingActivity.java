@@ -1,5 +1,6 @@
 package com.gmu.kam.cs321partapp;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -26,9 +27,14 @@ public class CarSettingActivity extends AppCompatActivity {
     }
 
 
+
+
+
     //This method will load a file from the device storage and set the appropriate values.
     public void loadCarInfo(){
-        SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
+        Context context = getApplicationContext();
+        SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(context);
+        //SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
         String yr = carTextInfo.getString("YEAR1","none");
         String mak = carTextInfo.getString("MAKE1","none");
         String mod = carTextInfo.getString("MODEL1","none");
