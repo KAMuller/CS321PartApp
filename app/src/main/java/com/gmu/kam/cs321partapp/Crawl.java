@@ -117,7 +117,7 @@ public class Crawl
         {
             Product temp = new Product();   //create new Product object
             temp.prodName=prodLinks.get(i).childNode(1).outerHtml().replaceAll("<h1>", ""); //set product name and modify string to omit HTML tags
-            temp.prodName=prodLinks.get(i).childNode(1).outerHtml().replaceAll("</h1>", "");
+            temp.prodName=temp.prodName.replaceAll("</h1>", "");
             temp.prodPrice=prodPrices.get(i).text(); //set product price
             temp.prodLink="https://www.carparts.com" + prodLinks.get(i).attr("href");   //set link to product page
             temp.prodImg=prodImgs.get(i).attr("src");   //set link to product image
