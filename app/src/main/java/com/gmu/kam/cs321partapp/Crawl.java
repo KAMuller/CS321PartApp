@@ -1,4 +1,4 @@
-package com.gmu.kam.cs321partapp;
+//package com.gmu.kam.cs321partapp;
 
 import java.io.IOException;
 import java.util.*;
@@ -10,6 +10,21 @@ public class Crawl
 {
     ArrayList<String> urls;
 
+    public static void main(String[] args)
+    {
+        new Crawl();
+        ArrayList<String> links = new ArrayList<>();
+        links.add("https://www.walmart.com/search/?query=bmw%20328%20oil%20filter");
+        links.add("https://www.carid.com/search/bmw+328+oil+filter/code-4fcd2e651da39b752e7dc875318f2987/queryId-ebbd3775b217cb708c439c80a06fd102");
+        //crawlSites(links);
+        try
+        {
+            productListUSAutoParts("https://www.usautoparts.net/catalog?Ntt=1994+honda+accord+cci+wheel&searchType=global&N=&shopId=1&searchType=global&N=0");
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
     public Crawl()
     {
 
@@ -73,6 +88,7 @@ public class Crawl
         walmartProducts.addAll(carIdProducts);
         walmartProducts.addAll(USAutoPartsProducts);
         allProducts=walmartProducts;
+        System.out.println(allProducts.size());
         return allProducts; //return arraylist of all products
     }
 
@@ -83,9 +99,14 @@ public class Crawl
         System.out.println("Document received from webpage at " + url);
 
         ArrayList<Element> prodElements = document.select("li[class=js-product-list-item]"); //retrieve all elements that fit CSSQuery
+        int numProducts = 15; //default num of products to retrieve
+        if(prodElements.size()<15) //if less than 15 products on page, grab all products
+        {
+            numProducts=prodElements.size();
+        }
 
         ArrayList<Product> products=new ArrayList<>(); //initial list of products
-        for (int i = 0; i < 15; i++) //iterate through 15 products
+        for (int i = 0; i < numProducts; i++) //iterate through 15 products
         {
             Product temp = new Product(); //create new Product object
             temp.prodName=prodElements.get(i).attr("data-name"); //set product name
@@ -106,18 +127,25 @@ public class Crawl
         ArrayList<Element> prodLinks; //retrieve elements that contain link to product page
         prodLinks = document.getElementsByAttributeValueStarting("data-elemname", "item_name_link");
 
+        System.out.println(prodLinks.size());
         ArrayList<Element> prodPrices; //retrieve elements that contain product price
         prodPrices = document.getElementsByAttributeValueStarting("data-elemname", "item_price_text");
 
         ArrayList<Element> prodImgs; //retrieve elements that contain product image link
         prodImgs = document.getElementsByAttributeValueStarting("data-elemname", "item_image_link");
 
+        int numProducts = 10;
+        if(prodLinks.size()<10)
+        {
+            numProducts=prodLinks.size();
+        }
+
         ArrayList<Product> products=new ArrayList<>();  //initial list of products
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < numProducts; i++)
         {
             Product temp = new Product();   //create new Product object
             temp.prodName=prodLinks.get(i).childNode(1).outerHtml().replaceAll("<h1>", ""); //set product name and modify string to omit HTML tags
-            temp.prodName=temp.prodName.replaceAll("</h1>", "");
+            temp.prodName=prodLinks.get(i).childNode(1).outerHtml().replaceAll("</h1>", "");
             temp.prodPrice=prodPrices.get(i).text(); //set product price
             temp.prodLink="https://www.carparts.com" + prodLinks.get(i).attr("href");   //set link to product page
             temp.prodImg=prodImgs.get(i).attr("src");   //set link to product image
@@ -136,14 +164,21 @@ public class Crawl
         ArrayList<Element> prodNames; //retrieve elements that contain product names
         prodNames = document.getElementsByAttributeValue("class","productName");
 
+
         ArrayList<Element> prodPrices; //retrieve elements that contain product price
         prodPrices = document.getElementsByAttributeValueStarting("class", "formValue ourPrice");
 
         ArrayList<Element> prodImgs;  //retrieve elements that contain product image links
         prodImgs = document.getElementsByAttributeValueStarting("class", "zoomViewer");
 
+        int numProducts=10; //default num of products to retrieve
+        if(prodPrices.size()<10) //if less than 10 products on page, grab all products
+        {
+            numProducts=prodPrices.size();
+        }
+
         ArrayList<Product> products=new ArrayList<>();  //initial list of products
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < numProducts; i++)
         {
             Product temp = new Product();
             temp.prodName = prodNames.get(i).text();    //set product name
