@@ -25,11 +25,6 @@ public class CarSettingActivity extends AppCompatActivity {
         //load from preferences
         loadCarInfo();
     }
-
-
-
-
-
     //This method will load a file from the device storage and set the appropriate values.
     public void loadCarInfo(){
         Context context = getApplicationContext();
@@ -47,9 +42,12 @@ public class CarSettingActivity extends AppCompatActivity {
             RadioButton car1 = findViewById(R.id.radioCar1);
             car1.toggle();
         }
-            String updateCar1 = "Year:" + yr + " " + "Make:" + mak + " " + "Model:" + mod;
+        if(!(yr.equals("none") && mak.equals("none") && mod.equals("none"))){
+            String updateCar1 = "Year:" + yr + " Make:" + mak + " Model:" + mod;
             TextView car1 = findViewById(R.id.textViewCar);
             car1.setText(updateCar1);
+        }
+
 
         String yr2 = carTextInfo.getString("YEAR2","none");
         String mak2 = carTextInfo.getString("MAKE2","none");
@@ -63,9 +61,12 @@ public class CarSettingActivity extends AppCompatActivity {
             RadioButton car2 = findViewById(R.id.radioCar2);
             car2.toggle();
         }
-            String updateCar2 = "Year:" + yr2 + " " + "Make:" + mak2 + " " + "Model:" + mod2;
+        if(!(yr2.equals("none") && mak2.equals("none") && mod2.equals("none"))){
+            String updateCar2 = "Year:" + yr2 + " Make:" + mak2 + " Model:" + mod2;
             TextView car2 = findViewById(R.id.textViewCar3);
             car2.setText(updateCar2);
+        }
+
 
         String yr3 = carTextInfo.getString("YEAR3","none");
         String mak3 = carTextInfo.getString("MAKE3","none");
@@ -79,9 +80,11 @@ public class CarSettingActivity extends AppCompatActivity {
             RadioButton car3 = findViewById(R.id.radioCar3);
             car3.toggle();
         }
-            String updateCar3 = "Year:" + yr3 + " " + "Make:" + mak3 + " " + "Model:" + mod3;
+        if(!(yr3.equals("none") && mak3.equals("none") && mod3.equals("none"))){
+            String updateCar3 = "Year:" + yr3 + " Make:" + mak3 + " Model:" + mod3;
             TextView car3 = findViewById(R.id.textViewCar4);
             car3.setText(updateCar3);
+        }
 
         String yr4 = carTextInfo.getString("YEAR4","none");
         String mak4 = carTextInfo.getString("MAKE4","none");
@@ -95,10 +98,12 @@ public class CarSettingActivity extends AppCompatActivity {
             RadioButton car4 = findViewById(R.id.radioCar4);
             car4.toggle();
         }
-
-            String updateCar4 = "Year:" + yr4 + " " + "Make:" + mak4 + " " + "Model:" + mod4;
+        if(!(yr4.equals("none") && mak4.equals("none") && mod4.equals("none"))){
+            String updateCar4 = "Year:" + yr4 + " Make:" + mak4 + " Model:" + mod4;
             TextView car4 = findViewById(R.id.textViewCar2);
-            car4.setText(updateCar4);                                                        
+            car4.setText(updateCar4);
+        }
+
         
     }
     //Defines what happens when the "Save" button is clicked in the activity.
@@ -150,8 +155,8 @@ public class CarSettingActivity extends AppCompatActivity {
     public void getInfo(TextView info) {
         String info1 = info.getText().toString();
         info1 = info1.replace("Year:", "!");
-        info1 = info1.replace("Make:", "!");
-        info1 = info1.replace("Model:", "!");
+        info1 = info1.replace(" Make:", "!");
+        info1 = info1.replace(" Model:", "!");
         String[] values = info1.split("!");
         year = values[1];
         make = values[2];
@@ -165,7 +170,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText4);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()) {
-            String updateCar1 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
+            String updateCar1 = "Year:" + yearText + " Make:" + makeText + " Model:" + modelText;
             TextView car1 = findViewById(R.id.textViewCar);
             car1.setText(updateCar1);
         }
@@ -179,7 +184,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText7);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()){
-            String updateCar2 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
+            String updateCar2 = "Year:" + yearText + " Make:" + makeText + " Model:" + modelText;
             TextView car2 = findViewById(R.id.textViewCar3);
             car2.setText(updateCar2);
         }
@@ -194,7 +199,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText11);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty() || !makeText.isEmpty() || !modelText.isEmpty()) {
-            String updateCar3 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
+            String updateCar3 = "Year:" + yearText + " Make:" + makeText + " Model:" + modelText;
             TextView car3 = findViewById(R.id.textViewCar4);
             car3.setText(updateCar3);
         }
@@ -208,7 +213,7 @@ public class CarSettingActivity extends AppCompatActivity {
         EditText modelInp = findViewById(R.id.editText13);
         String modelText = modelInp.getText().toString();
         if(!yearText.isEmpty()|| !makeText.isEmpty() || !modelText.isEmpty()){
-            String updateCar4 = "Year:" + yearText + " " + "Make:" + makeText + " " + "Model:" + modelText;
+            String updateCar4 = "Year:" + yearText + " Make:" + makeText + " Model:" + modelText;
             TextView car4 = findViewById(R.id.textViewCar2);
             car4.setText(updateCar4);
         }
@@ -218,8 +223,8 @@ public class CarSettingActivity extends AppCompatActivity {
         String[] results = {"none", "none", "none"};
         String inf = info.getText().toString();
         inf = inf.replace("Year:", "!");
-        inf = inf.replace("Make:", "!");
-        inf = inf.replace("Model:", "!");
+        inf = inf.replace(" Make:", "!");
+        inf = inf.replace(" Model:", "!");
         String[] val = inf.split("!");
         results[0] = val[1];
         results[1] = val[2];
@@ -227,7 +232,7 @@ public class CarSettingActivity extends AppCompatActivity {
         return results;
     }
 
-    //BuString[] values = info1.split("!"); tton for saving the data
+    //BuString[] values = info1.split("!"); button for saving the data
     //This button will save the data in the fields to the device storage.
     public void saveData(){
         SharedPreferences carTextInfo = PreferenceManager.getDefaultSharedPreferences(CarSettingActivity.this);
